@@ -1,17 +1,6 @@
-import { createStore, IStoreModels, IStoreDispatch, IStoreRootState } from 'ice';
-import nav from './models/nav';
+import { createStore } from 'ice';
+import user from './models/user';
 
-interface IAppStoreModels extends IStoreModels {
-  nav: typeof nav;
-}
-
-const appModels: IAppStoreModels = {
-  nav,
-};
-
-const store = createStore(appModels);
+const store = createStore({ user });
 
 export default store;
-
-export type IRootDispatch = IStoreDispatch<typeof appModels>;
-export type IRootState = IStoreRootState<typeof appModels>;

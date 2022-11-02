@@ -1,9 +1,0 @@
-.banner {
-  @apply w-full;
-  :global(.swiper-wrapper) {
-    @apply flex-row;
-  }
-  :global(.swiper-pagination) {
-    @apply block;
-  }
-}

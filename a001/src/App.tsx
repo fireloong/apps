@@ -1,16 +1,17 @@
+import * as React from 'react';
 import { runApp, IAppConfig } from 'ice';
-import 'uno.css';
-import '@unocss/reset/antfu.css';
+import LocaleProvider from '@/components/LocaleProvider';
+import { getLocale } from '@/utils/locale';
+
+const locale = getLocale();
 
 const appConfig: IAppConfig = {
   app: {
-    rootId: 'root',
-    strict: true,
+    rootId: 'ice-container',
+    addProvider: ({ children }) => <LocaleProvider locale={locale}>{children}</LocaleProvider>,
   },
   router: {
     type: 'browser',
-    fallback: <div>loading...</div>,
   },
 };
-
 runApp(appConfig);

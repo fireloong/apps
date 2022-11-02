@@ -1,62 +1,107 @@
-import { useEffect, useRef, useState } from 'react';
-import { useBoolean, useRafState, useSize } from 'ahooks';
-import Header from './components/Header';
-import Nav from './components/Nav';
-import Banner from './components/Banner';
+import React, { useState } from 'react';
+import { Shell, ConfigProvider } from '@alifd/next';
+import PageNav from './components/PageNav';
+import GlobalSearch from './components/GlobalSearch';
+import Notice from './components/Notice';
+import SolutionLink from './components/SolutionLink';
+import HeaderAvatar from './components/HeaderAvatar';
+import Logo from './components/Logo';
 import Footer from './components/Footer';
 
-const BasicLayout = ({ children }) => {
-  const [navSlide, { setTrue, setFalse }] = useBoolean(false);
-  const [sizeWindow, setSizeWindow] = useRafState({ width: 0, height: 0 });
-  const [minHeight, setMinHeight] = useState(0);
-  const ref = {
-    header: useRef(null),
-    nav: useRef(null),
-    footer: useRef(null),
-  };
-  const size = {
-    header: useSize(ref.header),
-    nav: useSize(ref.nav),
-    footer: useSize(ref.footer),
-  };
+(function () {
+  const throttle = function (type: string, name: string, obj: Window = window) {
+    let running = false;
 
-  useEffect(() => {
-    const onResize = () => {
-      setSizeWindow({
-        width: document.documentElement.clientWidth,
-        height: document.documentElement.clientHeight,
+    const func = () => {
+      if (running) {
+        return;
+      }
+
+      running = true;
+      requestAnimationFrame(() => {
+        obj.dispatchEvent(new CustomEvent(name));
+        running = false;
       });
     };
-    onResize();
 
-    window.addEventListener('resize', onResize);
+    obj.addEventListener(type, func);
+  };
 
-    return () => {
-      window.removeEventListener('resize', onResize);
-    };
-  }, [setSizeWindow]);
+  if (typeof window !== 'undefined') {
+    throttle('resize', 'optimizedResize');
+  }
+})();
 
-  useEffect(() => {
-    if (size.nav?.height !== 0 && (size.nav?.height || 0) < sizeWindow.height) {
-      setMinHeight(
-        sizeWindow.height - (size.header?.height || 0) - (size.nav?.height || 0) - (size.footer?.height || 0),
-      );
+interface IGetDevice {
+  (width: number): 'phone' | 'tablet' | 'desktop';
+}
+export default function BasicLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const getDevice: IGetDevice = (width) => {
+    const isPhone =
+      typeof navigator !== 'undefined' &&
+      navigator &&
+      navigator.userAgent.match(/phone/gi);
+
+    if (width < 680 || isPhone) {
+      return 'phone';
+    } else if (width < 1280 && width > 680) {
+      return 'tablet';
     } else {
-      setMinHeight(sizeWindow.height - (size.header?.height || 0) - (size.footer?.height || 0));
+      return 'desktop';
     }
-  }, [size.footer?.height, size.header?.height, size.nav?.height, sizeWindow]);
+  };
+
+  const [device, setDevice] = useState(getDevice(NaN));
+
+  if (typeof window !== 'undefined') {
+    window.addEventListener('optimizedResize', (e) => {
+      const deviceWidth =
+        (e && e.target && (e.target as Window).innerWidth) || NaN;
+      setDevice(getDevice(deviceWidth));
+    });
+  }
 
   return (
-    <>
-      <Header handleClick={setTrue} forwardedRef={ref.header} />
-      <Nav slide={navSlide} closeSlide={setFalse} forwardedRef={ref.nav} />
-      <main style={{ minHeight }}>
-        <Banner />
-        {children}
-      </main>
-      <Footer forwardedRef={ref.footer} />
-    </>
-  );
-};
+    <ConfigProvider device={device}>
+      <Shell
+        style={{
+          minHeight: '100vh',
+        }}
+        type="brand"
+        fixedHeader={false}
+      >
+        <Shell.Branding>
+          <Logo
+            image="https://img.alicdn.com/tfs/TB1.ZBecq67gK0jSZFHXXa9jVXa-904-826.png"
+            text="Logo"
+          />
+        </Shell.Branding>
+        <Shell.Navigation
+          direction="hoz"
+          style={{
+            marginRight: 10,
+          }}
+        >
+          <GlobalSearch />
+        </Shell.Navigation>
+        <Shell.Action>
+          <Notice />
+          <SolutionLink />
+          <HeaderAvatar />
+        </Shell.Action>
+        <Shell.Navigation>
+          <PageNav />
+        </Shell.Navigation>
 
-export default BasicLayout;
+        <Shell.Content>{children}</Shell.Content>
+        <Shell.Footer>
+          <Footer />
+        </Shell.Footer>
+      </Shell>
+    </ConfigProvider>
+  );
+}
