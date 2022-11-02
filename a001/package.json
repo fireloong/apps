@@ -1,31 +1,22 @@
 {
-  "name": "simple",
-  "version": "0.1.0",
-  "description": "使用 TypeScript，未使用任何 UI 库。",
+  "name": "my-vite-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
   "dependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@iceworks/spec": "^1.0.0",
-    "@types/react": "^17.0.2",
-    "@types/react-dom": "^17.0.2",
-    "eslint": "^7.30.0",
-    "ice.js": "^2.0.0",
-    "stylelint": "^13.7.2"
-  },
-  "scripts": {
-    "start": "icejs start",
-    "build": "icejs build",
-    "lint": "npm run eslint && npm run stylelint",
-    "eslint": "eslint --cache --ext .js,.jsx,.ts,.tsx ./",
-    "eslint:fix": "npm run eslint -- --fix",
-    "stylelint": "stylelint \"**/*.{css,scss,less}\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ice-lab/react-materials/tree/master/scaffolds/simple"
-  },
-  "private": true,
-  "originTemplate": "@alifd/scaffold-simple"
+    "@types/react": "^18.0.22",
+    "@types/react-dom": "^18.0.7",
+    "@vitejs/plugin-react": "^2.2.0",
+    "typescript": "^4.6.4",
+    "vite": "^3.2.0"
+  }
 }
