@@ -15,7 +15,6 @@ lib/
 .DS_Store
 *.swp
 *.dia~
-.ice
 .vscode
 
 npm-debug.log*
