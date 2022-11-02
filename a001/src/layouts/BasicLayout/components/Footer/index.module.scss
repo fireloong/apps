@@ -1,0 +1,24 @@
+.footer {
+  @apply bg-teal-6 text-white py-4;
+  .box {
+    @apply container w-full mx-a md:flex-row items-center justify-between;
+    .info {
+      @apply text-lg;
+      p {
+        @apply md:(mb-4 text-left) text-center mb-3;
+      }
+      small {
+        @apply text-sm;
+      }
+    }
+    .qr {
+      @apply b b-neutral-3 text-center bg-white mt-4;
+      img {
+        @apply w-30;
+      }
+      small {
+        @apply text-neutral-4 b-t b-t-neutral-3;
+      }
+    }
+  }
+}

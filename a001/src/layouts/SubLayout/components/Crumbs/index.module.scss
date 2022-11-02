@@ -1,0 +1,6 @@
+.crumbs {
+  @apply bg-gray-1 flex-row items-center b-b b-b-gray-3 px-8 text-sm gap-2 mb-4;
+  a {
+    @apply leading-10 h-10 text-dark-50;
+  }
+}

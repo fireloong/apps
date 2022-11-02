@@ -1,0 +1,35 @@
+.actions {
+  @apply flex-row;
+  a {
+    @apply px-2 py-1 bg-teal-6 text-white;
+    &:hover {
+      @apply bg-teal-5 text-white;
+    }
+  }
+}
+
+.list {
+  @apply flex flex-col mt-6 gap-5;
+  li {
+    @apply b b-gray-3 p-2;
+    a {
+      @apply block;
+      h3 {
+        @apply font-600 text-dark mb-2;
+      }
+      span {
+        @apply bg-neutral-2 px-2 py-1 text-sm text-neutral-4;
+      }
+      p {
+        @apply mt-2 text-sm text-neutral-6 pb-2;
+      }
+    }
+  }
+}
+
+.total {
+  @apply flex-row-reverse mt-4;
+  span {
+    @apply text-sm bg-cyan-6 text-white px-3 py-1 cursor-default;
+  }
+}

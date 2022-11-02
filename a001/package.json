@@ -1,43 +1,40 @@
 {
   "name": "a001",
   "version": "0.1.0",
-  "private": true,
+  "description": "使用 TypeScript，未使用任何 UI 库。",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^13.0.0",
-    "@testing-library/user-event": "^13.2.1",
-    "@types/jest": "^27.0.1",
-    "@types/node": "^16.7.13",
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "typescript": "^4.4.2",
-    "web-vitals": "^2.1.0"
+    "ahooks": "^3.7.2",
+    "classnames": "^2.3.2",
+    "framer-motion": "^7.6.1",
+    "react": "^17.0.2",
+    "react-bmapgl": "^0.2.10",
+    "react-dom": "^17.0.2",
+    "swiper": "^8.4.4"
+  },
+  "devDependencies": {
+    "@iceworks/spec": "^1.0.0",
+    "@iconify/react": "^4.0.0",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.2",
+    "eslint": "^7.30.0",
+    "ice.js": "^2.0.0",
+    "serve": "^14.0.1",
+    "stylelint": "^14.14.0",
+    "unocss": "^0.46.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "icejs start",
+    "build": "icejs build",
+    "lint": "npm run eslint && npm run stylelint",
+    "eslint": "eslint --cache --ext .js,.jsx,.ts,.tsx ./",
+    "eslint:fix": "npm run eslint -- --fix",
+    "stylelint": "stylelint \"**/*.{css,scss,less}\"",
+    "serve": "serve -s build"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ice-lab/react-materials/tree/master/scaffolds/simple"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+  "private": true,
+  "originTemplate": "@alifd/scaffold-simple"
 }
