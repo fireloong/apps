@@ -1,3 +1,4 @@
+import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import Unocss from 'unocss/vite';
@@ -11,7 +12,15 @@ export default defineConfig({
     Unocss({
       presets: [presetUno()],
       transformers: [transformerDirective()],
-      rules: [['ps', {}]],
+      rules: [
+        ['ps', {}],
+        ['me', []],
+      ],
     }),
   ],
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, 'src'),
+    },
+  },
 });
