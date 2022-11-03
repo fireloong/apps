@@ -26,10 +26,11 @@
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.10",
-    "eslint-plugin-simple-import-sort": "^8.0.0",
     "pre-commit": "^1.2.2",
     "prettier": "^2.7.1",
+    "sass": "^1.55.0",
     "typescript": "^4.8.4",
+    "unocss": "^0.46.3",
     "vite": "^3.2.2"
   },
   "pre-commit": "lint",

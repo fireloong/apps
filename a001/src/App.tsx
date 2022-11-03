@@ -1,10 +1,8 @@
-import './App.css';
+import { useState } from 'react';
+import logo from '/logo.svg';
+import './app.scss';
 
-import React, { useState } from 'react';
-
-import logo from './logo.svg';
-
-function App() {
+const App = () => {
   const [count, setCount] = useState(0);
 
   return (
@@ -13,7 +11,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p className="header">
           🚀 Vite + React + Typescript 🤘 & <br />
-          Eslint 🔥+ Prettier
+          Eslint 🔥+ Prettier m-3
         </p>
 
         <div className="body">
@@ -49,6 +47,6 @@ function App() {
       </header>
     </div>
   );
-}
+};
 
 export default App;
