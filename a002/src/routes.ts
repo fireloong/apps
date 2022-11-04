@@ -11,6 +11,7 @@ const Article = lazy(() => import('@/pages/Article'));
 const Advantage = lazy(() => import('@/pages/Advantage'));
 const Contact = lazy(() => import('@/pages/Contact'));
 const Lbs = lazy(() => import('@/pages/Lbs'));
+const Message = lazy(() => import('@/pages/Message'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const routerConfig: IRouterConfig[] = [
@@ -71,6 +72,11 @@ const routerConfig: IRouterConfig[] = [
             path: '/lbs',
             exact: true,
             component: Lbs,
+          },
+          {
+            path: '/message',
+            exact: true,
+            component: Message,
           },
           {
             component: NotFound,

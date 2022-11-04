@@ -115,7 +115,7 @@ const Nav = ({
             <Link to="/lbs">地图导航</Link>
           </li>
           <li>
-            <Link to="/">留言反馈</Link>
+            <Link to="/message">留言反馈</Link>
           </li>
         </motion.ul>
       </nav>

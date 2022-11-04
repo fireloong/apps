@@ -1,0 +1,32 @@
+.form {
+  @apply w-full flex flex-col gap-4;
+  .field {
+    @apply md:flex-row;
+    label {
+      @apply md:(w-50 text-right mr-2) h-8 leading-8;
+    }
+    .input {
+      input,textarea {
+        @apply b b-gray-2 md:w-120 outline-none px-2 py-1 shadow;
+        &:focus {
+          @apply b-gray-3 shadow-md;
+        }
+      }
+      input {
+        @apply h-8;
+      }
+      textarea {
+        @apply h-24;
+      }
+    }
+    button {
+      @apply px-2 py-1 text-white;
+    }
+    .submit {
+      @apply bg-teal-6 md:(mr-2 mb-0) mb-2;
+    }
+    .reset {
+      @apply bg-gray;
+    }
+  }
+}
