@@ -6,8 +6,8 @@ const appConfig: IAppConfig = {
   },
   router: {
     type: 'browser',
-    fallback: <div>loading</div>
-  }
+    fallback: <div>loading...</div>,
+  },
 };
 
 runApp(appConfig);
