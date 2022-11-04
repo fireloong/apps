@@ -1,0 +1,15 @@
+.contact {
+  @apply grid grid-cols-12 gap-2;
+  dt {
+    @apply col-span-2 text-right mb-2;
+  }
+  dd {
+    @apply col-span-10 text-gray-6 mb-2;
+    a {
+      @apply bg-teal-6 text-white mr-2 px-3 py-1;
+      &:hover {
+        @apply bg-teal-5;
+      }
+    }
+  }
+}

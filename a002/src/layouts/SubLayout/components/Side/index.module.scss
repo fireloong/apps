@@ -1,0 +1,38 @@
+.side {
+  @apply col-span-3 gap-5 lt-lg:hidden;
+  .nav,
+  .list {
+    @apply bg-gray-2;
+    h4 {
+      @apply bg-teal-6 text-white text-center py-3;
+    }
+  }
+  .nav {
+    ul li {
+      @apply b-t b-t-white;
+      a {
+        @apply block p-3 text-dark-50;
+        &:hover {
+          @apply bg-teal-6 text-white;
+        }
+      }
+    }
+  }
+  .list {
+    ul li {
+      @apply b-t b-t-zinc-300;
+      a {
+        @apply block text-dark-50 p-3 truncate;
+        &:hover {
+          @apply text-teal-6;
+        }
+      }
+      .more {
+        @apply bg-teal-6 text-white text-sm inline-block px-3 py-1 rounded-full my-3;
+        &:hover {
+          @apply bg-teal-5 text-white;
+        }
+      }
+    }
+  }
+}
