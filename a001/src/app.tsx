@@ -1,6 +1,9 @@
-import { defineAppConfig } from 'ice';
+import { runApp, IAppConfig } from 'ice';
 
-// App config, see https://v3.ice.work/docs/guide/basic/app
-export default defineAppConfig({
-  // Set your configs here.
-});
+const appConfig: IAppConfig = {
+  app: {
+    rootId: 'ice-container',
+  },
+};
+
+runApp(appConfig);

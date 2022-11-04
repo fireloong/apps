@@ -1,31 +1,46 @@
-## ICE 3 Project
 
-> An ICE 3 project, using TypeScript CSS Modules.
+## Simple
 
-## Usage
+> A TypeScript simple template
+
+## 使用
 
 ```bash
+# 安装依赖
 $ npm install
-$ npm start
+
+# 启动服务
+$ npm start  # visit http://localhost:3333
 ```
 
-[Documentation](https://ice.work/docs/guide/about).
+[More docs](https://ice.work/docs/guide/about).
 
-## Directories
+## 目录
 
 ```md
-.
+├── build/                         # 构建产物
+├── mock/                          # 本地模拟数据
+│   ├── index.[j,t]s
+├── public/
+│   ├── index.html                 # 应用入口 HTML
+│   └── favicon.png                # Favicon
+├── src/                           # 源码路径
+│   ├── components/                # 自定义业务组件
+│   │   └── Guide/
+│   │       ├── index.[j,t]sx
+│   │       └── index.module.scss
+│   ├── pages/                     # 页面
+│   │   └── index.tsx/
+│   ├── global.scss                # 全局样式
+│   └── app.[j,t]s[x]              # 应用入口脚本
 ├── README.md
-├── ice.config.mts                  # The project config.
 ├── package.json
-├── src
-│   ├── app.tsx                     # The app entry.
-│   ├── assets
-│   │   └── logo.png
-│   ├── document.tsx
-│   ├── pages                       # Pages directroy.
-│   │   ├── index.css
-│   │   └── index.tsx               # Index page entry.
-│   └── typings.d.ts
-└── tsconfig.json
+├── .editorconfig
+├── .eslintignore
+├── .eslintrc.[j,t]s
+├── .gitignore
+├── .stylelintignore
+├── .stylelintrc.[j,t]s
+├── .gitignore
+└── [j,t]sconfig.json
 ```
