@@ -10,6 +10,10 @@ const appConfig: IAppConfig = {
     type: 'browser',
     fallback: <div>loading...</div>,
   },
+  request: {
+    withFullResponse: true,
+    baseURL: '/api',
+  },
 };
 
 runApp(appConfig);

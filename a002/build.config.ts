@@ -11,4 +11,14 @@ export default {
       rules: [['ps', {}]],
     }),
   ],
+  proxy: {
+    '/api': {
+      enable: false,
+      changeOrigin: true,
+      target: 'http://127.0.0.1:6001',
+      pathRewrite: {
+        '^/api/': '/path/',
+      },
+    },
+  },
 };
