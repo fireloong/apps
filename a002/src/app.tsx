@@ -1,4 +1,4 @@
-import { runApp, IAppConfig, config } from 'ice';
+import { runApp, IAppConfig } from 'ice';
 import 'uno.css';
 import '@unocss/reset/antfu.css';
 
@@ -14,8 +14,15 @@ const appConfig: IAppConfig = {
     withFullResponse: true,
     baseURL: '/api',
     interceptors: {
-      request: (config: any) => {
-        console.log('config :>> ', config);
+      request: {
+        onConfig: (config) => {
+          console.log('env :>> ', process.env.NODE_ENV);
+          console.log('config :>> ', config);
+          return config;
+        },
+        onError: (error) => {
+          return Promise.reject(error);
+        },
       },
     },
   },
