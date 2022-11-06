@@ -1,19 +1,31 @@
-import { IRootState, IRootDispatch } from '@/store';
+import { IRootDispatch } from '@/store';
 import infoService from '@/services/info';
 
+interface IState {
+  logo?: string;
+  serviceNumber: string;
+  joinNumber: string;
+  address: string;
+  copyright: string;
+  copyrightContent: string;
+  qr: string;
+}
+
+const initState: IState = {
+  logo: '',
+  serviceNumber: '',
+  joinNumber: '',
+  address: '',
+  copyright: '',
+  copyrightContent: '',
+  qr: '',
+};
+
 export default {
-  state: {
-    logo: '',
-    serviceNumber: '',
-    joinNumber: '',
-    address: '',
-    copyright: '',
-    copyrightContent: '',
-    qr: '',
-  },
+  state: initState,
 
   reducers: {
-    update: (prevState: IRootState, payload: IRootState) => {
+    update: (prevState: IState, payload: IState) => {
       return { ...prevState, ...payload };
     },
   },

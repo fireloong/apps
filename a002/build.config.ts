@@ -13,11 +13,11 @@ export default {
   ],
   proxy: {
     '/api': {
-      enable: false,
+      enable: true,
       changeOrigin: true,
-      target: 'http://127.0.0.1:6001',
+      target: 'https://gitee.com',
       pathRewrite: {
-        '^/api/': '/path/',
+        '^/api/': '/fireloong/data/raw/master/a001/',
       },
     },
   },
