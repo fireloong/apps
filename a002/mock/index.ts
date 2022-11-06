@@ -1,5 +1,5 @@
 module.exports = {
-  'GET /api/info': {
+  'GET /api2/info': {
     logo: '/images/logo.png',
     serviceNumber: '18637890085',
     joinNumber: '0371-88888888',

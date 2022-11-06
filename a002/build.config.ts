@@ -15,10 +15,11 @@ export default {
     '/api': {
       enable: true,
       changeOrigin: true,
-      target: 'https://gitee.com',
+      target: 'http://192.168.1.4:6001/',
       pathRewrite: {
-        '^/api/': '/fireloong/data/raw/master/a001/',
+        '^/api/': '/',
       },
     },
   },
+  browserslist: '> 0.5%, last 2 versions',
 };

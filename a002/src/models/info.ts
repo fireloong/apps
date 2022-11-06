@@ -33,7 +33,11 @@ export default {
   effects: (dispatch: IRootDispatch) => ({
     async fetchInfo() {
       const info = await infoService.getInfo();
-      dispatch.info.update(info.data);
+      if (info.headers['content-type'].indexOf('application/json') !== -1) {
+        dispatch.info.update(info.data);
+      } else {
+        console.error('错误：请求失败或格式错误！');
+      }
     },
   }),
 };
