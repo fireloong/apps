@@ -16,8 +16,9 @@ const appConfig: IAppConfig = {
     interceptors: {
       request: {
         onConfig: (config) => {
-          console.log('env :>> ', process.env.NODE_ENV);
-          console.log('config :>> ', config);
+          if (process.env.NODE_ENV === 'production') {
+            config.baseURL = 'http://192.168.1.4:6001/';
+          }
           return config;
         },
         onError: (error) => {
